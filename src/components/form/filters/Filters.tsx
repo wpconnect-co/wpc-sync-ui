@@ -665,9 +665,9 @@ const FilterInputCheckbox = ({texts, hideInput, value, onChange}: FilterInputPro
 						onChange(event.target.checked ? '1' : '0');
 					}}
 				/><label htmlFor={ id }>
-				<SvgChecked />
-				<span className="screen-reader-text">{texts.checked}</span>
-			</label>
+					<SvgChecked />
+					<span className="screen-reader-text">{texts.checked}</span>
+				</label>
 			</>
 	}</div>
 }
