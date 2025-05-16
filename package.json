@@ -1,6 +1,6 @@
 {
   "name": "air-wp-sync-ui",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "build": "npm run clean-build && npm run rollup && shx mkdir -p ../../js/air-wp-sync-ui && shx cp package.json ../../js/air-wp-sync-ui/package.json && shx cp -r library ../../js/air-wp-sync-ui/",
