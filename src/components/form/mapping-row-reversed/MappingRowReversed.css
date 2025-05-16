@@ -1,0 +1,81 @@
+/* components/form/mapping-row-reversed */
+.airwpsync-c-mapping-row-reversed__wordpress-field {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 8px 11px;
+}
+.airwpsync-c-mapping-row-reversed__btn-sort,
+.airwpsync-c-mapping-row-reversed__btn-sort:focus {
+	flex: 0 0 16px;
+	color: var(--airwpsync--color--primary-200);
+}
+.airwpsync-c-mapping-row-reversed__btn-sort:hover,
+.airwpsync-c-mapping-row-reversed__btn-sort:focus-visible {
+	color: var(--airwpsync--color--primary-500);
+}
+.airwpsync-c-mapping-row-reversed__wordpress-field .airwpsync-c-select__select-wrapper {
+	flex: 0 0 calc(100% - 16px - 11px);
+	line-height: 1;
+}
+.airwpsync-c-mapping-row-reversed__wordpress-field-col,
+.airwpsync-c-mapping-row-reversed__assigned-to {
+	line-height: 38px;
+	vertical-align: top;
+}
+.airwpsync-c-mapping-row-reversed__wordpress-field-col {
+	width: 368px;
+	padding-right: 40px;
+
+}
+.airwpsync-c-mapping-row-reversed__assigned-to {
+	font-size: 1rem;
+	color: var(--airwpsync--color--primary-200);
+	padding-right: 40px;
+	width: 128px;
+
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.airwpsync-c-mapping-row-reversed__airtable-field-col {
+	width: 368px;
+	vertical-align: top;
+}
+
+.airwpsync-c-mapping-row-reversed__airtable-field-col .airwpsync-c-input__input-state-icon {
+	display: none;
+}
+
+.airwpsync-c-mapping-row-reversed__flex {
+	vertical-align: top;
+}
+
+.airwpsync-c-mapping-row-reversed__remove-btn,
+.airwpsync-c-mapping-row-reversed__remove-btn:focus {
+	color: var(--airwpsync--color--primary-200);
+
+	height: 38px;
+	width: 38px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-left: -13px; /* visually align left button in the column */
+}
+.airwpsync-c-mapping-row-reversed__remove-btn:hover,
+.airwpsync-c-mapping-row-reversed__remove-btn:focus-visible {
+	color: var(--airwpsync--color--primary-500);
+}
+
+.airwpsync-c-mapping-row-reversed__error {
+	color: var(--airwpsync--color--error);
+	font-size: var(--airwpsync-t-font-size--sm);
+	margin-top: 8px;
+	line-height: 1.2;
+}
+
+.airwpsync-c-mapping-row-reversed__custom-field {
+	padding-left: 27px;
+	line-height: 1;
+}

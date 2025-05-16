@@ -1,0 +1,51 @@
+
+
+/* components/graphics/circle-loading-animation */
+.airwpsync-c-circle-loading svg {
+	display: block;
+	animation: airwpsync-rotate-360 infinite 1s;
+}
+
+
+@keyframes airwpsync-rotate-360 {
+
+	8% {
+		transform: rotate(calc(360deg/12));
+	}
+	16% {
+		transform: rotate(calc(360deg/12 * 2));
+	}
+	25% {
+		transform: rotate(calc(360deg/12 * 3));
+	}
+	33% {
+		transform: rotate(calc(360deg/12 * 4));
+	}
+	33% {
+		transform: rotate(calc(360deg/12 * 4));
+	}
+	41% {
+		transform: rotate(calc(360deg/12 * 5));
+	}
+	50% {
+		transform: rotate(calc(360deg/12 * 6));
+	}
+	58% {
+		transform: rotate(calc(360deg/12 * 7));
+	}
+	66% {
+		transform: rotate(calc(360deg/12 * 8));
+	}
+	75% {
+		transform: rotate(calc(360deg/12 * 9));
+	}
+	83% {
+		transform: rotate(calc(360deg/12 * 10));
+	}
+	91% {
+		transform: rotate(calc(360deg/12 * 11));
+	}
+	100% {
+		transform: rotate(calc(360deg/12 * 12));
+	}
+}

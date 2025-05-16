@@ -1,0 +1,14 @@
+/* components/form/button-group */
+.airwpsync-c-button-group {
+	display: flex;
+	flex-wrap: wrap;
+}
+.airwpsync-c-button-group--gap-10 {
+	gap: 10px;
+}
+.airwpsync-c-button-group--gap-16 {
+	gap: 16px;
+}
+.airwpsync-c-button-group--gap-24 {
+	gap: 24px;
+}

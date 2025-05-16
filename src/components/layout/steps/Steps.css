@@ -1,0 +1,30 @@
+/* components/layout/steps */
+
+.airwpsync-c-steps {
+	position: relative;
+}
+.airwpsync-c-steps__step {
+	background-color: #FFF;
+}
+.airwpsync-c-steps__step:not(.item-enter,.item-enter-done,.item-enter-active,.item-exit,.item-exit-active,.item-appear-done) {
+	display: none;
+}
+.airwpsync-c-steps__step.item-enter {
+	opacity: 0;
+}
+.airwpsync-c-steps__step.item-enter-active {
+	opacity: 1;
+	transition: opacity 300ms ease-in;
+}
+.airwpsync-c-steps__step.item-exit {
+	opacity: 1;
+	position: absolute;
+	z-index: -1;
+	top: 0;
+}
+.airwpsync-c-steps__step.item-exit-active {
+	opacity: 0;
+	position: absolute;
+	top: 0;
+	transition: opacity 500ms ease-in;
+}

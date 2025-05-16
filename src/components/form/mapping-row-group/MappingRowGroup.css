@@ -1,0 +1,38 @@
+/* components/form/mapping-row-group */
+.airwpsync-c-mapping-row-group {
+	position: relative;
+	z-index: 1;
+}
+.airwpsync-c-mapping-row-group::after {
+	content: '';
+	position: absolute;
+	z-index: -1;
+	top: 32px;
+	left: 0;
+	width: 100%;
+	bottom: 0;
+	background: #FFFFFF;
+	box-shadow: 0 4px 12px rgba(12, 49, 72, 0.15);
+	border-radius: 4px;
+}
+.airwpsync-c-mapping-row-group :where(th),
+.airwpsync-c-mapping-row-group :where(td) {
+	padding: 10px 16px 0;
+}
+.airwpsync-c-mapping-row-group > :last-child td {
+	padding-bottom: 8px;
+}
+
+.airwpsync-c-mapping-row-group__heading {
+	text-align: left;
+	color: var(--airwpsync--color--primary-200);
+	font-weight: 500;
+	font-size: 1rem;
+	padding-top: 40px;
+}
+.airwpsync-c-mapping-row-group__heading::after {
+	content: '';
+	display: block;
+	padding-bottom: 10px;
+	border-bottom: 1px solid var(--airwpsync--color--primary-50);
+}

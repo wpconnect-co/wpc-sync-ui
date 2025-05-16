@@ -1,0 +1,16 @@
+/* components/form/button */
+.airwpsync-c-button:disabled {
+	cursor: default;
+}
+.airwpsync-c-button.airwpsync-b-button-base--primary:disabled {
+	background-color: var(--airwpsync--color--primary-100);
+}
+
+.airwpsync-c-button.airwpsync-b-button-base--secondary:disabled {
+	color: var(--airwpsync--color--primary-100);
+	border-color: currentColor;
+}
+
+.airwpsync-c-button.airwpsync-b-button-base--link:disabled {
+	color: var(--airwpsync--color--primary-100);
+}

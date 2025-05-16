@@ -1,0 +1,38 @@
+
+/* components/content/helpLink */
+.airwpsync-c-help-link {
+	display: flex;
+	align-items: flex-start;
+	gap: 10px;
+	width: fit-content;
+	color: var(--airwpsync--color--primary-300);
+	font-size: 1rem;
+	line-height: 1.2;
+}
+.airwpsync-c-help-link--vertical {
+	flex-direction: column;
+}
+.airwpsync-c-help-link__inner {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 8px;
+}
+.airwpsync-c-help-link:hover,
+.airwpsync-c-help-link:focus-visible {
+	color: var(--airwpsync--color--primary-600);
+}
+.airwpsync-c-help-link__icon {
+	width: 16px;
+	height: 16px;
+	color: var(--airwpsync--color--green-500);
+}
+.airwpsync-c-help-link__text {
+	flex-basis: calc(100% - 16px - 8px);
+}
+.airwpsync-c-help-link__preview {
+	border-radius: 8px;
+	width: 268px;
+	height: 156px;
+	filter: drop-shadow(0px 4px 12px rgba(12, 49, 72, 0.15));
+}

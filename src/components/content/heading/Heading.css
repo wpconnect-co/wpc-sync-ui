@@ -1,0 +1,28 @@
+/* components/content/heading */
+.airwpsync-c-heading--lvl-1 {
+	font-size: calc(22rem / 16);
+	font-weight: 400;
+	line-height: 1;
+	color: var(--airwpsync--color--green-500);
+	margin: 0 0 calc(16em / 22);
+}
+.airwpsync-c-heading--lvl-2 {
+	font-size: calc(28rem / 16);
+	font-weight: 500;
+	line-height: 1.4;
+	color: var(--airwpsync--color--primary);
+	margin: 0 0 calc(10em / 28);
+}
+.airwpsync-c-heading--lvl-3 {
+	font-size: calc(20rem / 16);
+	font-weight: 500;
+	line-height: 1;
+	color: var(--airwpsync--color--primary);
+	margin: 0 0 calc(10em / 20);
+}
+.airwpsync-c-heading[data-emoji]::before {
+	content: attr(data-emoji);
+	margin-right: 0.55em;
+	display: inline-block;
+}
+

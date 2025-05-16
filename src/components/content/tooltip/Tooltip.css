@@ -1,0 +1,71 @@
+/* components/content/callout */
+.airwpsync-c-tooltip {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	--airwpsync--tooltip-icon-color: var(--airwpsync--color--green-500);
+	--airwpsync--tooltip-message-color: var(--airwpsync--color--primary-500);
+	--airwpsync--tooltip-message-bgcolor: var(--airwpsync--color--primary-50);
+}
+.airwpsync-c-tooltip__icon {
+	position: relative;
+	color: var(--airwpsync--tooltip-icon-color);
+}
+.airwpsync-c-tooltip__icon--icon-position-left {
+	order: -1;
+}
+.airwpsync-c-tooltip__icon svg {
+	display: block;
+}
+.airwpsync-c-tooltip__message {
+	position: absolute;
+	color: var(--airwpsync--tooltip-message-color);
+	background-color: var(--airwpsync--tooltip-message-bgcolor);
+	padding: 10px;
+	min-width: 200px;
+	font-size: 0.75rem;
+	border-radius: 4px;
+	opacity: 0;
+	pointer-events: none;
+	transition: 0.3s ease-out;
+}
+.airwpsync-c-tooltip--is-active .airwpsync-c-tooltip__message {
+	opacity: 1;
+	pointer-events: inherit;
+}
+.airwpsync-c-tooltip__message--position-top {
+	bottom: 100%;
+	left: 50%;
+	transform: translateX(-50%);
+	margin-bottom: 10px;
+}
+.airwpsync-c-tooltip__message--position-top::after {
+	content: "";
+	border-left: 6px solid transparent;
+	border-right: 6px solid transparent;
+	border-top: 6px solid var(--airwpsync--tooltip-message-bgcolor);
+	bottom: -6px;
+	margin-left: -6px;
+	position: absolute;
+	left: 50%;
+}
+.airwpsync-c-tooltip__message--position-right {
+	left: 100%;
+	top: 50%;
+	transform: translateY(-50%);
+	margin-left: 10px;
+}
+.airwpsync-c-tooltip__message--position-right::after {
+	content: "";
+	border-bottom: 6px solid transparent;
+	border-right: 6px solid var(--airwpsync--tooltip-message-bgcolor);
+	border-top: 6px solid transparent;
+	left: -6px;
+	margin-top: -6px;
+	position: absolute;
+	top: 50%;
+}
+
+.airwpsync-c-tooltip__message a {
+	color: inherit;
+}

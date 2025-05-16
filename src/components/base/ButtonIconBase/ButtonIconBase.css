@@ -1,0 +1,23 @@
+/* components/base/button-icon */
+
+.airwpsync-b-button__icon {
+	margin-right: -8px;
+	max-width: 1em;
+	max-height: 1em;
+	object-fit: contain;
+}
+
+.airwpsync-b-button--icon-before {
+	flex-direction: row-reverse;
+}
+.airwpsync-b-button--icon-before .airwpsync-b-button__icon {
+	margin-right: 0;
+	margin-left: -8px;
+}
+.airwpsync-b-button-base--link .airwpsync-b-button__icon {
+	color: inherit;
+	margin-right: 0;
+}
+.airwpsync-b-button-base--link.airwpsync-b-button--icon-before .airwpsync-b-button__icon {
+	margin-left: 0;
+}

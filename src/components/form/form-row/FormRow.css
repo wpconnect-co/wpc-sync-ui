@@ -1,0 +1,6 @@
+/* components/form/form-row */
+.airwpsync-c-form-row {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}

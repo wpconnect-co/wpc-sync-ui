@@ -1,0 +1,23 @@
+/* components/content/paragraph */
+.airwpsync-c-paragraph {
+	font-weight: 400;
+	line-height: 1.25;
+	color: var(--airwpsync--color--primary);
+	margin: 0 0 calc(10em / 16);
+}
+
+.airwpsync-c-paragraph a {
+	text-decoration: underline;
+	color: inherit;
+}
+
+.airwpsync-c-paragraph a:hover {
+	color: var(--airwpsync--color--primary-900);
+}
+
+.airwpsync-c-paragraph--weight-bold strong {
+	font-weight: 700;
+}
+.airwpsync-c-paragraph--weight-medium strong {
+	font-weight: 500;
+}

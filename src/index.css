@@ -1,0 +1,75 @@
+/* Define base styles for the library */
+:root {
+	--airwpsync--color--yellow-50: #FEF6E7;
+	--airwpsync--color--yellow-100: #FAE2B3;
+	--airwpsync--color--yellow-500: #F0A10B;
+
+	--airwpsync--color--green-50: #EFF9F7;
+	--airwpsync--color--green-100: #CEEBE7;
+	--airwpsync--color--green-200: #B6E1DC;
+	--airwpsync--color--green-500: #61BEB2;
+	--airwpsync--color--green-600: #58ADA2;
+	--airwpsync--color--green-800: #356962;
+
+
+	--airwpsync--color--primary-50: #E7EAED;
+    --airwpsync--color--primary-100: #B4BFC6;
+	--airwpsync--color--primary-200: #8FA0AB;
+	--airwpsync--color--primary-300: #5C7584;
+	--airwpsync--color--primary-400: #3D5A6D;
+	--airwpsync--color--primary-500: #0C3148;
+    --airwpsync--color--primary-600: #0B2D42;
+    --airwpsync--color--primary-800: #071B28;
+	--airwpsync--color--primary-900: #05151E;
+
+	--airwpsync--color--white: #FFF;
+	--airwpsync--color--black: #000;
+
+	--airwpsync--color--primary: var(--airwpsync--color--primary-500);
+	--airwpsync--color--warning-bg: var(--airwpsync--color--yellow-50);
+
+	--airwpsync--color--error-bg: #EFC9BD;
+	--airwpsync--color--error: #EC430E;
+
+	--airwpsync-t-font-size--xs: 0.75rem; /* 12px */
+	--airwpsync-t-font-size--sm: 0.875rem; /* 14px */
+	--airwpsync-t-font-size--base: 1rem; /* 16px */
+	--airwpsync-t-font-size--lg: 1.125rem; /* 18px */
+	--airwpsync-t-font-size--xl: 1.25rem; /* 20px */
+
+}
+
+body {
+	background: #F7F9FB;
+}
+
+[class^="airwpsync"],
+[class^="airwpsync"]::before,
+[class^="airwpsync"]::after {
+	box-sizing: border-box;
+}
+
+/* .airwpsync-t => Typography */
+.airwpsync-t-font-size--xs { font-size: var(--airwpsync-t-font-size--xs); }
+.airwpsync-t-font-size--sm { font-size: var(--airwpsync-t-font-size--sm); }
+.airwpsync-t-font-size--base { font-size: var(--airwpsync-t-font-size--base); }
+.airwpsync-t-font-size--lg { font-size: var(--airwpsync-t-font-size--lg); }
+.airwpsync-t-font-size--xl { font-size: var(--airwpsync-t-font-size--xl); }
+
+/* .airwpsync-u => Utils */
+.airwpsync-u-reset-btn,
+.airwpsync-u-reset-btn:focus {
+	background: transparent;
+	border: 0;
+	outline: 0;
+	padding: 0;
+	cursor: pointer;
+	transition: 0.2s ease-out;
+}
+.airwpsync-u-reset-btn svg {
+	display: block;
+}
+
+#wpbody {
+	container: air-wp-sync-ui-root / inline-size;
+}

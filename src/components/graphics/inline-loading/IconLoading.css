@@ -1,0 +1,26 @@
+
+
+/* components/graphics/InlineLoading */
+.airwpsync-c-inline-loading {
+	width: 32px;
+}
+.airwpsync-c-inline-loading .airwpsync-i-loading__shape-1,
+.airwpsync-c-inline-loading .airwpsync-i-loading__shape-2 {
+	transform-origin: 0 50%;
+	animation: airwpsync-scale-up-down 1s infinite alternate-reverse;
+}
+.airwpsync-c-inline-loading .airwpsync-i-loading__shape-2 {
+	transform-origin: 75% 50%;
+	animation-delay: 0.75s;
+}
+
+@keyframes airwpsync-scale-up-down {
+	0% {
+		transform: scale(1);
+		opacity: 1;
+	}
+	100% {
+		transform: scale(66.66%);
+		opacity: 0.6;
+	}
+}

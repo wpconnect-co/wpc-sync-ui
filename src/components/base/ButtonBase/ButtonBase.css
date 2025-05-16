@@ -1,0 +1,66 @@
+/* components/base/button-base */
+.airwpsync-b-button-base {
+	line-height: 1.25;
+	border: 0;
+	cursor: pointer;
+	outline: 0;
+	box-shadow: none;
+	text-decoration: none;
+	width: fit-content;
+	border-radius: 4px;
+	padding: 6px 24px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	transition: 0.3s ease-out;
+}
+.airwpsync-b-button-base:focus {
+	outline: 0;
+	box-shadow: none;
+}
+
+.airwpsync-b-button-base--primary,
+.airwpsync-b-button-base--primary:focus {
+	background-color: var(--airwpsync--color--primary-600);
+	color: #FFF;
+
+}
+.airwpsync-b-button-base--primary:hover,
+.airwpsync-b-button-base--primary:focus-visible {
+	background-color: var(--airwpsync--color--primary-900);
+	color: #FFF;
+	outline: 0;
+}
+.airwpsync-b-button-base--secondary,
+.airwpsync-b-button-base--secondary:focus {
+	background-color: #FFF;
+	color: var(--airwpsync--color--primary);
+	border: 1px solid var(--airwpsync--color--green-500);
+	padding: 4px 22px;
+}
+.airwpsync-b-button-base--secondary:hover,
+.airwpsync-b-button-base--secondary:focus-visible {
+	color: var(--airwpsync--color--primary-900);
+	border-color: var(--airwpsync--color--green-800);
+}
+
+
+.airwpsync-b-button-base--link {
+	background-color: transparent;
+	color: var(--airwpsync--color--primary-500);
+	transition: color 0.3s ease-out;
+	text-decoration: underline;
+	padding-left: 0;
+	padding-right: 0;
+}
+.airwpsync-b-button-base--link:hover {
+	color: var(--airwpsync--color--primary-800);
+}
+
+.airwpsync-b-button-base--underlined {
+	text-decoration: underline;
+}
+.airwpsync-b-button-base:not(.airwpsync-b-button-base--underlined) {
+	text-decoration: none;
+}
