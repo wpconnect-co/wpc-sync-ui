@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "npm run clean-build && npm run rollup && shx mkdir -p ../../js/air-wp-sync-ui && shx cp package.json ../../js/air-wp-sync-ui/package.json && shx cp -r library ../../js/air-wp-sync-ui/",
+    "build": "npm run clean-build && npm run rollup && shx mkdir -p ../../js/air-wp-sync-ui && shx cp package.json ../../js/air-wp-sync-ui/package.json && shx cp -r library ../../js/air-wp-sync-ui/ && rm ../../js/air-wp-sync-ui/library/.js && rm ../../js/air-wp-sync-ui/library/.js.map",
     "clean-build": "shx --silent rm -rf ../../js/air-wp-sync-ui",
     "rollup": "npm run clean-library && rollup -c --bundleConfigAsCjs",
     "clean-library": "shx --silent rm -rf library",
