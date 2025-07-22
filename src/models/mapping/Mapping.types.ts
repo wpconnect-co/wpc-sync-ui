@@ -53,10 +53,16 @@ export type MappingGroupOptions = Record<string, MappingGroupOption>
 export type AirtableSelectFieldGroupOptions = Record<string, AirtableSelectFieldGroupOption>;
 export interface AirtableSelectFieldGroupOption {
 	label: string,
-	options: AirtableField[]
+	options: AirtableFieldOption[]
+}
+export interface AirtableFieldOption extends AirtableField {
+	enabled?: boolean
 }
 
 export type WordPressSelectFieldGroupOptions = Record<string, WordPressSelectFieldGroupOption>;
 export interface WordPressSelectFieldGroupOption extends MappingGroupOption {
 
 }
+
+export type WordPressOptionEnablingStrategy = (option:MappingOption, wordPressFieldsSelected:string[], airtableFieldsSelected:string[]) => boolean;
+export type AirtableOptionEnablingStrategy = (option:AirtableField, wordPressFieldsSelected:string[], airtableFieldsSelected:string[]) => boolean;

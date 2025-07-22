@@ -4,11 +4,23 @@ import {
 	AirtableField,
 	Mapping,
 	MappingGroupOptions,
-	MappingOption, AirtableSelectFieldGroupOption, AirtableSelectFieldGroupOptions,
+	MappingOption,
+	AirtableSelectFieldGroupOption,
+	AirtableSelectFieldGroupOptions,
 	SetMappingSignature,
-	SupportedSource, WordPressSelectFieldGroupOptions, WordPressField
+	SupportedSource,
+	WordPressSelectFieldGroupOptions,
+	WordPressField,
+	WordPressOptionEnablingStrategy,
+	AirtableOptionEnablingStrategy
 } from "./Mapping.types";
 
+const isWordPressOptionEnabled = (option:MappingOption, wordPressFieldsSelected:string[], airtableFieldsSelected:string[]):boolean => {
+	return option.enabled && (wordPressFieldsSelected.indexOf(option.value) === -1 || option.allow_multiple);
+}
+const isAirtableOptionEnabled = (option:AirtableField, wordPressFieldsSelected:string[], airtableFieldsSelected:string[]):boolean => {
+	return true;
+}
 export default class MappingManagerReversed {
 
 
@@ -25,7 +37,7 @@ export default class MappingManagerReversed {
 
 	template:Record<string, Mapping>|null
 
-	constructor(mappingInit:Mapping[], setMapping:SetMappingSignature, fields:AirtableField[], wordPressFields:WordPressField[], defaultMappingOptions:MappingGroupOptions, isOptionAvailable:(featurePath:string) => boolean, template:Record<string, Mapping>|null = null) {
+	constructor(mappingInit:Mapping[], setMapping:SetMappingSignature, fields:AirtableField[], wordPressFields:WordPressField[], defaultMappingOptions:MappingGroupOptions, isOptionAvailable:(featurePath:string) => boolean, template:Record<string, Mapping>|null = null, wordPressOptionEnablingStrategy:WordPressOptionEnablingStrategy = isWordPressOptionEnabled, airtableOptionEnablingStrategy:AirtableOptionEnablingStrategy = isAirtableOptionEnabled ) {
 		const self = this;
 		this.fields = fields;
 		this.wordPressFields = wordPressFields;
@@ -59,6 +71,14 @@ export default class MappingManagerReversed {
 			return result
 		}, {} as Record<string, AirtableField>);
 
+		const wordPressFieldsSelected = this.mapping.map(( fieldMapping) => {
+			return fieldMapping.wordpress;
+		}, []);
+
+		const airtableFieldsSelected = this.mapping.map(( fieldMapping) => {
+			return fieldMapping.airtable;
+		}, []);
+
 		this._airtableSelectFieldGroupsOptions = this.mapping.map((fieldMapping) => {
 			return fields.reduce(function (result, field) {
 				const wordPressField = self.getWordPressFieldById(fieldMapping.wordpress);
@@ -73,13 +93,12 @@ export default class MappingManagerReversed {
 					} as AirtableSelectFieldGroupOption;
 				}
 
-				result[group].options.push(field);
+				result[group].options.push({
+					...field,
+					enabled: airtableOptionEnablingStrategy(field, wordPressFieldsSelected, airtableFieldsSelected)
+				});
 				return result;
 			}, {} as AirtableSelectFieldGroupOptions);
-		}, []);
-
-		const wordPressFieldsSelected = this.mapping.map(( fieldMapping) => {
-			return fieldMapping.wordpress;
 		}, []);
 
 		this._wordPressSelectFieldsOptions = Object.keys(defaultMappingOptions).reduce((mappingOptions, groupName) => {
@@ -96,7 +115,7 @@ export default class MappingManagerReversed {
 			group.options = group.options.map(function(option) {
 				return {
 					...option,
-					enabled: option.enabled && (wordPressFieldsSelected.indexOf(option.value) === -1 || option.allow_multiple)
+					enabled: wordPressOptionEnablingStrategy(option, wordPressFieldsSelected, airtableFieldsSelected)
 				};
 			});
 
@@ -105,16 +124,6 @@ export default class MappingManagerReversed {
 
 
 	}
-
-	isOptionDisabled(option:MappingOption) {
-		if (option.allow_multiple) {
-			return false;
-		}
-		return this.mapping.reduce(function(result, current) {
-			return current.wordpress && current.wordpress === option.value ? true : result;
-		}, false);
-	}
-
 
 	getAirtableFirstOption() {
 		return this.fields.length > 0 ? this.fields[0].id : '';

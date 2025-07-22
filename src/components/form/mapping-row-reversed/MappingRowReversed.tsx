@@ -81,7 +81,7 @@ export default function MappingRowReversed({ texts, index, airtableFieldId, word
 		return {
 			label: groupLabel,
 			options: group.options.map((field) => {
-				const option = { value: field.id, label: field.name } as SelectOption;
+				const option = { value: field.id, label: field.name, isDisabled: 'enabled' in field && !field.enabled } as SelectOption;
 				if (option.value === airtableFieldId) {
 					selectedAirtableField = option
 				}
