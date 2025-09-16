@@ -54,11 +54,11 @@
 }
 
 .airwpsync-c-input__instructions {
-	font-size: 1rem;
+	font-size: 0.75rem;
 	font-weight: 400;
 	line-height: 1.2;
 	color: var(--airwpsync--color--primary);
-	margin: 10px 0 0 0;
+	margin: 0.5em 0 0 0;
 }
 
 .airwpsync-c-input__instructions a {
