@@ -170,7 +170,7 @@ export default function MappingRowReversed({ texts, index, airtableFieldId, word
 					placeholder={texts.wordpress_field_placeholder}
 				/>
 				{wordPressFieldConfig.notice ? <small>{wordPressFieldConfig.notice}</small> : null}
-				{wordPressFieldId && wordPressFieldId.split('::')[1] === 'custom_field' ? renderCustomFieldOptions() : null}
+				{wordPressFieldId && (wordPressFieldId.split('::')[1] === 'custom_field' || wordPressFieldId.endsWith('.custom_field')) ? renderCustomFieldOptions() : null}
 				{wordPressFieldConfig.form_options ? renderFieldFormOptions() : null}
 			</div>
 		</td>
