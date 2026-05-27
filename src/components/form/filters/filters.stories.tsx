@@ -213,7 +213,6 @@ export const FiltersWithGroup = ({ ...args }:any) => {
 		filterOption.group = filterOption.name === 'Name' ? 'Name group' : 'Other';
 		return filterOption;
 	});
-	console.log(otherArgs);
 	return <Filters
 		{ ...otherArgs }
 		airtableFilterOptions={ airtableFilterOptionsWithGroups }
