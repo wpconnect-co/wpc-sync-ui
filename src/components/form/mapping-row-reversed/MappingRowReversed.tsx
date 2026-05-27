@@ -168,6 +168,7 @@ export default function MappingRowReversed({ texts, index, airtableFieldId, word
 					// @ts-ignore
 					options={wordPressOptions}
 					placeholder={texts.wordpress_field_placeholder}
+					isSearchable={true}
 				/>
 				{wordPressFieldConfig.notice ? <small>{wordPressFieldConfig.notice}</small> : null}
 				{wordPressFieldId && (wordPressFieldId.split('::')[1] === 'custom_field' || wordPressFieldId.endsWith('.custom_field')) ? renderCustomFieldOptions() : null}
@@ -186,6 +187,7 @@ export default function MappingRowReversed({ texts, index, airtableFieldId, word
 				onChange={ airtableFieldChangedHandler }
 				// @ts-ignore
 				options={ airtableOptions }
+				isSearchable={true}
 				/>
 			{error ? <div className="airwpsync-c-mapping-row-reversed__error">{ error }</div> : null }
 		</td>
