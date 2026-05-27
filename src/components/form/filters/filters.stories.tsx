@@ -1,7 +1,7 @@
 import { Meta } from "@storybook/react";
 import Filters from "./Filters";
 import {useState} from "react";
-import {FilterGroupProps, FilterPropsOperators} from "./Filters.types";
+import {FilterGroupProps, FilterOption, FilterPropsOperators} from "./Filters.types";
 import Spacer from "../../layout/spacer/Spacer";
 import Paragraph from "../../content/paragraph/Paragraph";
 
@@ -198,6 +198,25 @@ export const FiltersUserFirst = ({ ...args }:any) => {
 
 	return <Filters
 		{ ...args }
+		onChange={ (newFiltersValue) => {
+			setFilterValues(newFiltersValue);
+		} }
+		conjunction={ conjunction }
+		filters={ filters }
+	/>;
+};
+
+export const FiltersWithGroup = ({ ...args }:any) => {
+	const [{ conjunction, filters }, setFilterValues] = useState(initFiltersValue);
+	const { airtableFilterOptions, ...otherArgs } = args;
+	const airtableFilterOptionsWithGroups = airtableFilterOptions.map( (filterOption:FilterOption) => {
+		filterOption.group = filterOption.name === 'Name' ? 'Name group' : 'Other';
+		return filterOption;
+	});
+	console.log(otherArgs);
+	return <Filters
+		{ ...otherArgs }
+		airtableFilterOptions={ airtableFilterOptionsWithGroups }
 		onChange={ (newFiltersValue) => {
 			setFilterValues(newFiltersValue);
 		} }

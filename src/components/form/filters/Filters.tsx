@@ -2,7 +2,7 @@ import {
 	FetcherProps,
 	FilterGroupInheritedProps,
 	FilterGroupProps,
-	FilterInheritedProps, FilterInputProps,
+	FilterInheritedProps, FilterInputProps, FilterOption,
 	FilterProps, FilterPropsOperators, InputSelectProps, LinkToAnotherRecordSelectProps,
 	PeriodSelectProps, PeriodSelectValues, PeriodValue, UserSelectProps
 } from "./Filters.types";
@@ -23,8 +23,8 @@ import {
 	linkToAnotherRecordToSelectOption, createCheckFilterProps, isFileType
 } from "./helpers";
 
-import {Options} from "react-select";
-import {SelectOption} from "../select/Select.types";
+import {Options, OptionsOrGroups} from "react-select";
+import {GroupOption, SelectOption} from "../select/Select.types";
 import {getFiltersComparisonOptions, getPeriodsOptions, getConjunctionOptions, getFileTypes} from "./config";
 import SvgChecked from "../../graphics/icons/Checked";
 /**
@@ -219,9 +219,10 @@ const Filter = ({
 					onRemove
 				}: FilterInheritedProps) => {
 	const filterProps = {columnName, columnId, operator, value};
-	const filterOptions = airtableFilterOptions.map(({id, name}) => ({value: id, label: name}));
+	const filterOptions = buildFilterOptions(airtableFilterOptions);
+	const flatFilterOptions = airtableFilterOptions.map(({id, name}) => ({value: id, label: name}));
 	const filter = getFilterById(airtableFilterOptions, columnId);
-	const fieldOptionValue = filterOptions.find((filterOption) => filterOption.value === columnId);
+	const fieldOptionValue = flatFilterOptions.find((filterOption) => filterOption.value === columnId);
 	const comparisonOptions = getFilterTypeFiltersComparisonOptions(filtersComparisonOptions, filter?.type);
 	const comparisonOptionValue = getComparisonOptionByOperator(comparisonOptions, operator);
 	const checkFilterProps = createCheckFilterProps(texts, airtableFilterOptions, filtersComparisonOptions);
@@ -689,4 +690,28 @@ const FilterInput = ({texts, hideInput, value, inputType, onChange}: FilterInput
 	}</div>
 }
 
+const buildFilterOptions = (airtableFilterOptions:FilterOption[]) => {
+	const groups = airtableFilterOptions.reduce((carry, option) => {
+		if (option.group && carry.indexOf(option.group) === -1) {
+			carry.push(option.group);
+		}
+		return carry;
+	}, [] as String[]);
+	if (groups.length > 0) {
+		const filterOptionsAndGroups = [] as GroupOption[];
+		groups.forEach((groupLabel) => {
+			filterOptionsAndGroups.push({
+				label: groupLabel,
+				options: airtableFilterOptions.filter((filterOption) => {
+					return filterOption.group === groupLabel;
+				}).map(({id, name}) => ({value: id, label: name}))
+			} as GroupOption)
+		});
+		return filterOptionsAndGroups;
+	} else {
+		return airtableFilterOptions.map(({id, name}) => ({value: id, label: name}));
+	}
+}
+
 export default Filters;
+

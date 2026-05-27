@@ -119,7 +119,8 @@ export interface FilterOption {
 	name: string;
 	id: string;
 	type: keyof FiltersComparisonOptions,
-	options?: SelectOption[]
+	options?: SelectOption[],
+	group?: string,
 }
 
 export interface FilterComparisonOption extends SelectOption {
