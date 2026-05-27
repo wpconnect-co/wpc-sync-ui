@@ -239,6 +239,7 @@ const Filter = ({
 				placeholder={texts.selectFieldPlaceholder}
 				value={fieldOptionValue}
 				menuShouldScrollIntoView={false}
+				isSearchable={true}
 				onChange={(newValue) => {
 					if (newValue) {
 						const newFilter = getFilterById(airtableFilterOptions, newValue.value);
