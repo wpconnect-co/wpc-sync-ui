@@ -161,6 +161,10 @@ export default class MappingManagerReversed {
 	updateWordPressField(index:number, wordPressFieldId:string) {
 		this.setMapping(this.mapping.map((el, i) => {
 			if (i === index) {
+				const options = { ...(el.options ?? {}) };
+				if (wordPressFieldId.split('::')[1] !== 'custom_field' && options.name) {
+					options.name = '';
+				}
 				let airtable = el.airtable;
 				// Check if we can automatically map to an airtable field.
 				if (wordPressFieldId && airtable === '' && this.template && this.template[wordPressFieldId]) {
@@ -169,7 +173,8 @@ export default class MappingManagerReversed {
 				return {
 					...el,
 					wordpress: wordPressFieldId,
-					airtable
+					airtable,
+					options
 				};
 			}
 			return el;

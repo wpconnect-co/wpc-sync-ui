@@ -158,9 +158,14 @@ export default class MappingManager {
 	updateWordPressField(index:number, wordPressFieldId:string) {
 		this.setMapping(this.mapping.map((el, i) => {
 			if (i === index) {
+				const options = { ...(el.options ?? {}) };
+				if (wordPressFieldId.split('::')[1] !== 'custom_field' && options.name) {
+					options.name = '';
+				}
 				return {
 					...el,
-					wordpress: wordPressFieldId
+					wordpress: wordPressFieldId,
+					options
 				};
 			}
 			return el;
