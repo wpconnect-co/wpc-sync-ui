@@ -1,0 +1,7 @@
+/* components/content/paragraph */
+.airwpsync-c-hr {
+	font-size: 1rem;
+	border: 0;
+	border-bottom: 1px solid var(--airwpsync--color--primary-50);
+	margin: calc(24em / 16) 0;
+}
