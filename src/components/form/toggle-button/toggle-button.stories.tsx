@@ -43,3 +43,9 @@ ToggleButtonDisabled.storyName = 'ToggleButton/Disabled';
 ToggleButtonDisabled.args = {
 	disabled: true
 };
+
+export const ToggleButtonWithInstructions = Template.bind({});
+ToggleButtonWithInstructions.storyName = 'ToggleButton/WithInstructions';
+ToggleButtonWithInstructions.args = {
+	instructions: 'Some instructions'
+};

@@ -9,11 +9,12 @@ import classnames from "classnames";
  *
  * @param {boolean} checked Checked?
  * @param {boolean} disabled Disabled checkbox prop.
+ * @param {string} instructions Instructions.
  * @param {object} ...props Other HTML checkbox props.
  *
  * @constructor
  */
-const ToggleButton = ({ label, checked = false, disabled = false, ...props }:ToggleButtonProps) => {
+const ToggleButton = ({ label, checked = false, disabled = false, instructions = "", ...props }:ToggleButtonProps) => {
 	const id = useId();
     return <div className={ classnames({
 		'airwpsync-c-toggle-button': true,
@@ -35,6 +36,13 @@ const ToggleButton = ({ label, checked = false, disabled = false, ...props }:Tog
 			</div>
 			<div className={`airwpsync-c-toggle-button__label `}>{ label }</div>
 		</label>
+		{
+			instructions ?
+				<div className={ `airwpsync-c-input__input-wrapper` }>
+					{ instructions ? <p className={ `airwpsync-c-input__instructions` }>{ instructions }</p> : null }
+				</div>
+			: null
+		}
 	</div>;
 };
 export default ToggleButton;
